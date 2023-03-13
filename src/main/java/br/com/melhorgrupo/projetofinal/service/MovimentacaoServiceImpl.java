@@ -13,7 +13,7 @@ public class MovimentacaoServiceImpl implements MovimentacaoService{
 	
 	@Override
 	public Movimentacao cadastrarMovimentacao(Movimentacao m) {
-		return ;
+		return repo.save(m);
 	}
 
 	@Override
