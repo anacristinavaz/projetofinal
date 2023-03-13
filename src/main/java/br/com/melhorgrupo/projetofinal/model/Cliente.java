@@ -2,15 +2,22 @@ package br.com.melhorgrupo.projetofinal.model;
 
 import jakarta.persistence.*;
 
-@Entity(name = "tbl_cliente")
+@Entity
+@Table(name = "tbl_cliente")
 public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cliente")
     private Long id_cliente;
+
     @Column(name="nome_cliente")
     private String nome_cliente;
+
+    @Column(name="cpf_cliente")
+    private String cpf_cliente;
+    @Column(name="telefone_cliente")
+    private String telefone_cliente;
 
     public Long getId_cliente() {
         return id_cliente;
@@ -43,13 +50,5 @@ public class Cliente {
     public void setTelefone_cliente(String telefone_cliente) {
         this.telefone_cliente = telefone_cliente;
     }
-
-    @Column(name="cpf_cliente")
-    private String cpf_cliente;
-    @Column(name="telefone_cliente")
-    private String telefone_cliente;
-
-
-
 
 }
