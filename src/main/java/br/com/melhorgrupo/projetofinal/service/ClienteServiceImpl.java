@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ClienteServiceImpl {
+
     @Autowired
     private ClienteRepo clienteRepo;
 
@@ -21,6 +22,7 @@ public class ClienteServiceImpl {
     public Cliente recuperarPeloID(int id) {
         return clienteRepo.findById(id).orElse(null);
     }
+
 
 
 }
