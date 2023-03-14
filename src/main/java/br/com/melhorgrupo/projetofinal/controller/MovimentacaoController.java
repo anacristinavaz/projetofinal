@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.melhorgrupo.projetofinal.model.Conta;
@@ -18,7 +19,7 @@ public class MovimentacaoController {
 	private MovimentacaoService service;
 	
 	@PostMapping("/movimentacao")
-	public ResponseEntity<Movimentacao> novaMovimentacao(Movimentacao m){
+	public ResponseEntity<Movimentacao> novaMovimentacao(@RequestBody Movimentacao m){
 		Movimentacao mov = service.cadastrarMovimentacao(m);
 		if (mov != null) {
 			return ResponseEntity.ok(mov);
@@ -27,7 +28,7 @@ public class MovimentacaoController {
 	}
 	
 	@GetMapping("/movimentacao/{id}")
-	public ResponseEntity<?> todaMoviPorConta(Conta c){
+	public ResponseEntity<?> todaMoviPorConta(@RequestBody Conta c){
 		ArrayList<Movimentacao> lista = (ArrayList<Movimentacao>)service.recuperarTodos(c);
 		if (lista != null) {
 			return ResponseEntity.ok(lista);
