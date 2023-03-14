@@ -7,10 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ClienteServiceImpl {
-<<<<<<< HEAD
-	
-	
-=======
+
     @Autowired
     private ClienteRepo clienteRepo;
 
@@ -26,6 +23,6 @@ public class ClienteServiceImpl {
         return clienteRepo.findById(id).orElse(null);
     }
 
->>>>>>> 81c981bcdac307c6e752c7b65ebfb75d3ea57bee
+
 
 }

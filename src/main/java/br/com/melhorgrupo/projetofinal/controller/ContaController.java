@@ -11,8 +11,8 @@ public class ContaController {
 	@Autowired
 	private ContaServiceImpl service;
 	
-	@GetMapping("/contas/{id}")
-	public 
+	//@GetMapping("/contas/{id}")
+	
 	
 	
 	
