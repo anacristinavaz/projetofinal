@@ -3,24 +3,25 @@ package br.com.melhorgrupo.projetofinal.service;
 import br.com.melhorgrupo.projetofinal.model.Cliente;
 import br.com.melhorgrupo.projetofinal.repo.ClienteRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+
+@Component
 public class ClienteServiceImpl {
 
     @Autowired
-    private ClienteRepo clienteRepo;
+    private ClienteRepo Repo;
 
     public Cliente cadastrarCliente(Cliente c) {
-        return clienteRepo.save(c);
+        return Repo.save(c);
     }
 
     public Iterable<Cliente> recuperarTodos() {
-        return clienteRepo.findAll();
+        return Repo.findAll();
     }
 
     public Cliente recuperarPeloID(int id) {
-        return clienteRepo.findById(id).orElse(null);
+        return Repo.findById(id).orElse(null);
     }
 
 
