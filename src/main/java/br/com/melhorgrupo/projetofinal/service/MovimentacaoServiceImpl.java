@@ -1,8 +1,11 @@
 package br.com.melhorgrupo.projetofinal.service;
 
 import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import br.com.melhorgrupo.projetofinal.model.Conta;
 import br.com.melhorgrupo.projetofinal.model.Movimentacao;
 import br.com.melhorgrupo.projetofinal.repo.MovimentacaoRepo;
 
@@ -17,8 +20,8 @@ public class MovimentacaoServiceImpl implements MovimentacaoService{
 	}
 
 	@Override
-	public ArrayList<Movimentacao> recuperarTodos(int conta) {
-		return (ArrayList<Movimentacao>) repo.findAll();
+	public ArrayList<Movimentacao> recuperarTodos(Conta c) {
+		return (ArrayList<Movimentacao>) repo.findByNumConta(c);
 	}
 	
 }
