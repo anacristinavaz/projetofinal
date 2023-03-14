@@ -20,15 +20,15 @@ public class ContaController {
 	@Autowired
 	private ContaServiceImpl service;
 	
-	@GetMapping("/contas/{id}")
-	
-	
-	@GetMapping("/contas/cliente/{id}")
-	public ArrayList<Conta> recuperarContasPeloCliente(@PathVariable int id){
-		Cliente c = new Cliente();
-		c.setId_cliente(id);
-		return service.recuperarContasPeloCliente(c);
-	}
+//	@GetMapping("/contas/{id}")
+//	
+//	
+//	@GetMapping("/contas/cliente/{id}")
+//	public ArrayList<Conta> recuperarContasPeloCliente(@PathVariable int id){
+//		Cliente c = new Cliente();
+//		c.setId_cliente(id);
+//		return service.recuperarContasPeloCliente(c);
+//	}
 	
 	
 	@PostMapping("/contas/{id}")
