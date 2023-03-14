@@ -23,7 +23,7 @@ public class ContaController {
 	
 	
 	@GetMapping("/contas/cliente/{id}")
-	public ArrayList<Conta> recuperarPeloCliente(@PatchVariable int id){
+	public ArrayList<Conta> recuperarContasPeloCliente(@PatchVariable int id){
 		Cliente c = new Cliente();
 		c.setId_cliente(id);
 		return service.recuperarContasPeloCliente(c);
