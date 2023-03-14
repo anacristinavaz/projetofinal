@@ -1,5 +1,10 @@
 package br.com.melhorgrupo.projetofinal.service;
 
-public class ContaServiceImpl {
+import org.springframework.stereotype.Component;
+
+@Component
+public class ContaServiceImpl implements ContaService {
+	public 
+	
 
 }
