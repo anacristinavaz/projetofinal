@@ -15,19 +15,17 @@ public class ClienteServiceImpl implements ClienteService {
     @Autowired
     private ClienteRepo Repo;
 
+    @Override
     public Cliente cadastrarCliente(Cliente c) {
         return Repo.save(c);
     }
 
     @Override
     public ArrayList<Cliente> recuperarTodos(int Cliente) {
-        return null;
-    }
-
-    public ArrayList<Cliente> recuperarTodos() {
         return (ArrayList<Cliente>) Repo.findAll();
     }
 
+    @Override
     public Cliente recuperarPeloID(int id) {
         return Repo.findById(id).orElse(null);
     }
