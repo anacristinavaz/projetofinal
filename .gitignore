@@ -1,5 +1,6 @@
 
 .idea/
+<<<<<<< HEAD
 target/
 /target/
 *.class
@@ -9,3 +10,7 @@ target/
 .project
 .classpath
 .gitignore
+=======
+.gitignore
+*.iml
+>>>>>>> origin/main
