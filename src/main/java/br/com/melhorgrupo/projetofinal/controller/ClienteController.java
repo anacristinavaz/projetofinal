@@ -8,32 +8,26 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+
+import static org.springframework.http.HttpStatus.*;
+
 @RestController
-@RequestMapping("/clientes")
 public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
-    @PostMapping("/cadastrar")
+    @PostMapping("/clientes")
     public ResponseEntity<Cliente> cadastrarCliente(@RequestBody Cliente c) {
         Cliente novoCliente = clienteService.cadastrarCliente(c);
-        return new ResponseEntity<>(novoCliente, HttpStatus.CREATED);
+        return new ResponseEntity<>(novoCliente, CREATED);
     }
 
-    @GetMapping
+    @GetMapping("/clientes")
     public ResponseEntity<ArrayList<Cliente>> listarClientes() {
         ArrayList<Cliente> c = clienteService.recuperarTodos();
-        return new ResponseEntity<>(c, HttpStatus.OK);
+        return new ResponseEntity<>(c,OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Cliente> buscarCliente(@PathVariable("id") Long idCliente) {
-        Cliente c = clienteService.recuperarPeloID(Math.toIntExact(idCliente));
-        if (c == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(c, HttpStatus.OK);
-    }
 
 
 }
