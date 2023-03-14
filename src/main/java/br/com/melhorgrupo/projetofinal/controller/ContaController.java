@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +24,7 @@ public class ContaController {
 	
 	
 	@GetMapping("/contas/cliente/{id}")
-	public ArrayList<Conta> recuperarContasPeloCliente(@PatchVariable int id){
+	public ArrayList<Conta> recuperarContasPeloCliente(@PathVariable int id){
 		Cliente c = new Cliente();
 		c.setId_cliente(id);
 		return service.recuperarContasPeloCliente(c);
