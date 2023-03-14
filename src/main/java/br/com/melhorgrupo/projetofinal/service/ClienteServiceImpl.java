@@ -1,28 +1,34 @@
 package br.com.melhorgrupo.projetofinal.service;
 
 import br.com.melhorgrupo.projetofinal.model.Cliente;
+import br.com.melhorgrupo.projetofinal.model.Movimentacao;
 import br.com.melhorgrupo.projetofinal.repo.ClienteRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
-public class ClienteServiceImpl {
+import java.util.ArrayList;
+
+
+@Component
+public class ClienteServiceImpl implements ClienteService {
 
     @Autowired
-    private ClienteRepo clienteRepo;
+    private ClienteRepo Repo;
 
+    @Override
     public Cliente cadastrarCliente(Cliente c) {
-        return clienteRepo.save(c);
+        return Repo.save(c);
     }
 
-    public Iterable<Cliente> recuperarTodos() {
-        return clienteRepo.findAll();
+    @Override
+    public ArrayList<Cliente> recuperarTodos(int Cliente) {
+        return (ArrayList<Cliente>) Repo.findAll();
     }
 
+    @Override
     public Cliente recuperarPeloID(int id) {
-        return clienteRepo.findById(id).orElse(null);
+        return Repo.findById(id).orElse(null);
     }
-
 
 
 }
