@@ -1,5 +1,8 @@
 package br.com.melhorgrupo.projetofinal.service;
 
+import java.util.ArrayList;
+
+import br.com.melhorgrupo.projetofinal.model.Cliente;
 import br.com.melhorgrupo.projetofinal.model.Conta;
 
 public interface ContaService {
@@ -9,6 +12,6 @@ public interface ContaService {
 	
 	public Conta alterarDados(Conta c);
 	
-	public Conta recuperarContasPeloCliente(int idCliente);
+	public ArrayList<Conta> recuperarContasPeloCliente(Cliente cl);
 
 }
