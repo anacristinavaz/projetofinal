@@ -14,17 +14,17 @@ import static org.springframework.http.HttpStatus.*;
 @RestController
 public class ClienteController {
     @Autowired
-    private ClienteService clienteService;
+    private ClienteService service;
 
     @PostMapping("/clientes")
     public ResponseEntity<Cliente> cadastrarCliente(@RequestBody Cliente c) {
-        Cliente novoCliente = clienteService.cadastrarCliente(c);
+        Cliente novoCliente = service.cadastrarCliente(c);
         return new ResponseEntity<>(novoCliente, CREATED);
     }
 
     @GetMapping("/clientes")
     public ResponseEntity<ArrayList<Cliente>> listarClientes() {
-        ArrayList<Cliente> c = clienteService.recuperarTodos();
+        ArrayList<Cliente> c = service.recuperarTodos();
         return new ResponseEntity<>(c,OK);
     }
 
