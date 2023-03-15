@@ -20,7 +20,16 @@ public class ContaController {
 	@Autowired
 	private ContaServiceImpl service;
 	
-//	@GetMapping("/contas/{id}")
+	@GetMapping("/contas/{id}")
+	public ResponseEntity<Conta> recuperarContasPorId(@PathVariable int id) {
+		Conta conta = service.recuperarPeloNumero(id);
+		if(conta != null) {
+			return ResponseEntity.ok(conta);
+		}
+		return ResponseEntity.notFound().build();
+				
+					
+	}
 //	
 //	
 //	@GetMapping("/contas/cliente/{id}")

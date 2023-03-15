@@ -16,18 +16,33 @@ public class ClienteController {
     @Autowired
     private ClienteService service;
 
+
+    @GetMapping
+    public ResponseEntity<ArrayList<Cliente>> listarClientes() {
+        ArrayList<Cliente> c = service.recuperarTodos();
+        return new ResponseEntity<>(c, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/clientes/{id}")
+    public ResponseEntity<Cliente> recuperarClientePorId(@PathVariable int id) {
+        Cliente c = service.recuperarPeloID(id);
+        if (c == null) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(c);
+        }
+    }
+
     @PostMapping("/clientes")
     public ResponseEntity<Cliente> cadastrarCliente(@RequestBody Cliente c) {
         Cliente novoCliente = service.cadastrarCliente(c);
-        return new ResponseEntity<>(novoCliente, CREATED);
+        if (novoCliente == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        } else {
+            return ResponseEntity.status(HttpStatus.CREATED).body(novoCliente);
+        }
     }
-
-    @GetMapping("/clientes")
-    public ResponseEntity<ArrayList<Cliente>> listarClientes() {
-        ArrayList<Cliente> c = service.recuperarTodos();
-        return new ResponseEntity<>(c,OK);
-    }
-
 
 
 }
