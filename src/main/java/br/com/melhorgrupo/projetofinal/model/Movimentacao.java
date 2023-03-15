@@ -28,7 +28,7 @@ public class Movimentacao {
 	private String descricao;
 	@ManyToOne
 	@JoinColumn(name="numero_conta")
-	private int numConta;
+	private Conta numConta;
 	
 	
 	public int getNumSeq() {
@@ -61,12 +61,12 @@ public class Movimentacao {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public int getNumConta() {
+	public Conta getNumConta() {
 		return numConta;
 	}
-	public void setNumConta(int numConta) {
+	public void setNumConta(Conta numConta) {
 		this.numConta = numConta;
-	} 
+	}
 	
 	
 	
