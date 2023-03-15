@@ -12,6 +12,6 @@ public interface ContaService {
 	
 	public Conta alterarDados(Conta c);
 	
-	public ArrayList<Conta> recuperarContasPeloCliente(Cliente cl);
+	public ArrayList<Conta> recuperarContasPeloCliente(int idc);
 
 }
