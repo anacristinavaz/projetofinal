@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import br.com.melhorgrupo.projetofinal.model.Cliente;
 import br.com.melhorgrupo.projetofinal.model.Conta;
 import br.com.melhorgrupo.projetofinal.repo.ContaRepo;
 
@@ -36,7 +37,9 @@ public class ContaServiceImpl implements ContaService {
 
 	@Override
 	public ArrayList<Conta> recuperarContasPeloCliente(int idc) {
-		return repo.findByCliente(idc);
+		Cliente cl = new Cliente();
+		cl.setIdCliente(idc);
+		return (ArrayList <Conta>)repo.findByCliente(idc);
 	}
 	
 }
