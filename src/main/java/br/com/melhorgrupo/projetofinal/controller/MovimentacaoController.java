@@ -27,7 +27,7 @@ public class MovimentacaoController {
 		return ResponseEntity.notFound().build();
 	}
 	
-	@GetMapping("/movimentacao/{id}")
+	@GetMapping("/movimentacao/{num}")
 	public ResponseEntity<?> todaMoviPorConta(@PathVariable int num){
 		ArrayList<Movimentacao> lista = service.recuperarTodos(num);
 		if (lista != null) {
