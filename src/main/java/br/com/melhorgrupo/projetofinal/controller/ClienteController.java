@@ -17,7 +17,7 @@ public class ClienteController {
     private ClienteService service;
 
 
-    @GetMapping
+    @GetMapping("/clientes")
     public ResponseEntity<ArrayList<Cliente>> listarClientes() {
         ArrayList<Cliente> c = service.recuperarTodos();
         return new ResponseEntity<>(c, HttpStatus.OK);
