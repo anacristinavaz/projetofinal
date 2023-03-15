@@ -39,7 +39,7 @@ public class ContaServiceImpl implements ContaService {
 	public ArrayList<Conta> recuperarContasPeloCliente(int idc) {
 		Cliente cl = new Cliente();
 		cl.setIdCliente(idc);
-		return (ArrayList <Conta>)repo.findByCliente(idc);
+		return (ArrayList <Conta>)repo.findByCliente(cl);
 	}
 	
 }
