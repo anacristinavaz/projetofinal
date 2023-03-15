@@ -9,5 +9,5 @@ import br.com.melhorgrupo.projetofinal.model.Conta;
 
 public interface ContaRepo extends CrudRepository<Conta, Integer> {
 	
-     public ArrayList<Conta> findByCliente (Cliente cl);
+     public ArrayList<Conta> findByCliente (int idc);
 }
