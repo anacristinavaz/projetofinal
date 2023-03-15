@@ -1,8 +1,6 @@
 package br.com.melhorgrupo.projetofinal.service;
-
 import java.util.ArrayList;
 
-import br.com.melhorgrupo.projetofinal.model.Cliente;
 import br.com.melhorgrupo.projetofinal.model.Conta;
 
 public interface ContaService {
