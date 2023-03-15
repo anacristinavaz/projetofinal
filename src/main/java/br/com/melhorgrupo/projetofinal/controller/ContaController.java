@@ -1,5 +1,7 @@
 package br.com.melhorgrupo.projetofinal.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.melhorgrupo.projetofinal.model.Cliente;
 import br.com.melhorgrupo.projetofinal.model.Conta;
 import br.com.melhorgrupo.projetofinal.service.ContaServiceImpl;
 
@@ -27,20 +30,23 @@ public class ContaController {
 				
 					
 	}
-//	
-//	
-//	@GetMapping("/contas/cliente/{id}")
-//	public ArrayList<Conta> recuperarContasPeloCliente(@PathVariable int id){
-//		Cliente c = new Cliente();
-//		c.setId_cliente(id);
-//		return service.recuperarContasPeloCliente(c);
-//	}
+	
+	
+	@GetMapping("/contas/clientes/{id}")
+	public ResponseEntity<?> recuperarContasPeloCliente(@PathVariable int id){
+		ArrayList<Conta> lista = service.recuperarContasPeloCliente(id);
+		if (lista != null) {
+			return ResponseEntity.ok(lista);
+		}
+		return ResponseEntity.notFound().build();
+	}
 	
 	
 	@PostMapping("/contas/{id}")
 	public ResponseEntity<Conta> adicionarConta(@RequestBody Conta c){	
 			Conta res = service.adicionarConta(c);
 			if (res != null) {
+				return ResponseEntity.ok(res);
 			}
 			return ResponseEntity.badRequest().build();
 			}
