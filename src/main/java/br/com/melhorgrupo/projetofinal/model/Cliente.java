@@ -9,46 +9,46 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cliente")
-    private Long id_cliente;
+    private Long idCliente;
 
-    @Column(name="nome_cliente")
-    private String nome_cliente;
+    @Column(name = "nome_cliente")
+    private String nomeCliente;
 
-    @Column(name="cpf_cliente")
-    private String cpf_cliente;
-    @Column(name="telefone_cliente")
-    private String telefone_cliente;
+    @Column(name = "cpf_cliente")
+    private String cpfCliente;
 
-    public Long getId_cliente() {
-        return id_cliente;
+    @Column(name = "telefone_cliente")
+    private String telefoneCliente;
+
+    public Long getIdCliente() {
+        return idCliente;
     }
 
-    public void setId_cliente(Long id_cliente) {
-        this.id_cliente = id_cliente;
+    public void setIdCliente(Long idCliente) {
+        this.idCliente = idCliente;
     }
 
-    public String getNome_cliente() {
-        return nome_cliente;
+    public String getNomeCliente() {
+        return nomeCliente;
     }
 
-    public void setNome_cliente(String nome_cliente) {
-        this.nome_cliente = nome_cliente;
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
     }
 
-    public String getCpf_cliente() {
-        return cpf_cliente;
+    public String getCpfCliente() {
+        return cpfCliente;
     }
 
-    public void setCpf_cliente(String cpf_cliente) {
-        this.cpf_cliente = cpf_cliente;
+    public void setCpfCliente(String cpfCliente) {
+        this.cpfCliente = cpfCliente;
     }
 
-    public String getTelefone_cliente() {
-        return telefone_cliente;
+    public String getTelefoneCliente() {
+        return telefoneCliente;
     }
 
-    public void setTelefone_cliente(String telefone_cliente) {
-        this.telefone_cliente = telefone_cliente;
+    public void setTelefoneCliente(String telefoneCliente) {
+        this.telefoneCliente = telefoneCliente;
     }
-
 }
