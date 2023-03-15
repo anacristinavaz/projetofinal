@@ -20,7 +20,9 @@ public class MovimentacaoServiceImpl implements MovimentacaoService{
 	}
 
 	@Override
-	public ArrayList<Movimentacao> recuperarTodos(Conta c) {
+	public ArrayList<Movimentacao> recuperarTodos(int conta) {
+		Conta c = new Conta();
+		c.setNumeroConta(conta);
 		return (ArrayList<Movimentacao>) repo.findByNumConta(c);
 	}
 	
