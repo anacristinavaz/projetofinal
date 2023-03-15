@@ -29,7 +29,7 @@ public class MovimentacaoController {
 	
 	@GetMapping("/movimentacao/{id}")
 	public ResponseEntity<?> todaMoviPorConta(@PathVariable int num){
-		ArrayList<Movimentacao> lista = (ArrayList<Movimentacao>)service.recuperarTodos(num);
+		ArrayList<Movimentacao> lista = service.recuperarTodos(num);
 		if (lista != null) {
 			return ResponseEntity.ok(lista);
 		}
