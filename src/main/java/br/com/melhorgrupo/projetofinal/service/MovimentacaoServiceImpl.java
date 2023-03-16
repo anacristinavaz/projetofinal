@@ -17,12 +17,10 @@ public class MovimentacaoServiceImpl implements MovimentacaoService{
 	
 	@Override
 	public Movimentacao cadastrarMovimentacao(Movimentacao m) {
-		Conta c = new Conta();
-		c.setNumeroConta();
-		
+		Conta c = m.getNumConta();
 		if (m.getTipoOperacao() == 2) {
 			if (c.getSaldo() >= m.getValor()) {
-				c.setSaldo(c.getSaldo() - saldo);
+				c.setSaldo(c.getSaldo() - m.getValor());
 				c = service.alterarDados(c);
 				return repo.save(m);
 			}
@@ -32,7 +30,8 @@ public class MovimentacaoServiceImpl implements MovimentacaoService{
 			c.setSaldo(c.getSaldo() + m.getValor());
 			c = service.alterarDados(c);
 			return repo.save(m);
-		}			
+		}
+		return null;			
 	}
 
 	@Override
