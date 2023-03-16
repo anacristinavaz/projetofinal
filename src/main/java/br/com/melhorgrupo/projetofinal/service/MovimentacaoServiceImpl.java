@@ -13,9 +13,16 @@ import br.com.melhorgrupo.projetofinal.repo.MovimentacaoRepo;
 public class MovimentacaoServiceImpl implements MovimentacaoService{
 	@Autowired
 	private MovimentacaoRepo repo;
+	private ContaService service;
 	
 	@Override
 	public Movimentacao cadastrarMovimentacao(Movimentacao m) {
+		Conta c = m.getNumConta();
+		double saldo = c.getSaldo();
+		if (saldo >= m.getValor()) {
+			c.setSaldo(c.getSaldo() - saldo);
+			return repo.save(service.alterarDados(c));
+		}
 		return repo.save(m);
 	}
 
