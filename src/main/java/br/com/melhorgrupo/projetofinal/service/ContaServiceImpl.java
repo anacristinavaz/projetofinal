@@ -29,10 +29,10 @@ public class ContaServiceImpl implements ContaService {
 
 	@Override
 	public Conta alterarDados(Conta c) {
-		if (c.getNumeroConta() == 0) {
-			return null;
+		if (c.getNumeroConta() != 0) {
+			return repo.save(c);
 		}
-		return repo.save(c);
+		return null;
 	}
 
 	@Override
