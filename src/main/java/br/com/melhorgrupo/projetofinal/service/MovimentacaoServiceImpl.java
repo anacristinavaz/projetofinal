@@ -21,14 +21,14 @@ public class MovimentacaoServiceImpl implements MovimentacaoService{
 		if (m.getTipoOperacao() == 2) {
 			if (c.getSaldo() >= m.getValor()) {
 				c.setSaldo(c.getSaldo() - m.getValor());
-				c = service.alterarDados(c);
+				m.setNumConta(service.alterarDados(c));
 				return repo.save(m);
 			}
 			return null;
 		}
 		if (m.getTipoOperacao() == 1) {
 			c.setSaldo(c.getSaldo() + m.getValor());
-			c = service.alterarDados(c);
+			m.setNumConta(service.alterarDados(c));
 			return repo.save(m);
 		}
 		else {
