@@ -1,5 +1,7 @@
 package br.com.melhorgrupo.projetofinal.service;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,11 +25,13 @@ public class TransferenciaServiceImpl implements TransferenciaService{
 			mo.setValor(valor);
 			mo.setNumConta(co);
 			mo.setDescricao("transferencia");
+			mo.setData(LocalDate.now());
 			Movimentacao md = new Movimentacao();
 			md.setTipoOperacao(1);
 			md.setValor(valor);
 			md.setNumConta(cd);
 			md.setDescricao("transferencia");
+			md.setData(LocalDate.now());
 			movi.cadastrarMovimentacao(mo);
 			movi.cadastrarMovimentacao(md);
 			return true;
