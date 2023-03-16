@@ -57,21 +57,5 @@ public class Conta {
 		this.cliente = cliente;
 	}
 	
-	public Conta () {
-		
-	}
-	
-	public Conta (int numeroConta) {
-		this.numeroConta = numeroConta;
-	}
-	public Conta(int numeroConta, int agencia, int tipoConta, double saldo, Cliente cliente) {
-		super();
-		this.numeroConta = numeroConta;
-		this.agencia = agencia;
-		this.tipoConta = tipoConta;
-		this.saldo = saldo;
-		this.cliente = cliente;
-	}
-	
 	
 }
