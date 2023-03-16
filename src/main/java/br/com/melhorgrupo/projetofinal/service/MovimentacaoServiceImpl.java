@@ -13,11 +13,13 @@ import br.com.melhorgrupo.projetofinal.repo.MovimentacaoRepo;
 public class MovimentacaoServiceImpl implements MovimentacaoService{
 	@Autowired
 	private MovimentacaoRepo repo;
+	
+	@Autowired
 	private ContaService service;
 	
 	@Override
 	public Movimentacao cadastrarMovimentacao(Movimentacao m) {
-		Conta c = m.getNumConta();
+		Conta c = service.recuperarPeloNumero(m.getNumConta().getNumeroConta());
 		if (m.getTipoOperacao() == 2) {
 			if (c.getSaldo() >= m.getValor()) {
 				c.setSaldo(c.getSaldo() - m.getValor());
